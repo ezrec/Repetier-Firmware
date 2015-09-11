@@ -179,6 +179,21 @@ void SDCard::stopPrint()
     }
 }
 
+static inline int *ival(void *p)
+{
+	return (int *)p;
+}
+
+static inline int32_t *i32val(void *p)
+{
+	return (int32_t *)p;
+}
+
+static inline float *fval(void *p)
+{
+	return (float *)p;
+}
+
 void SDCard::writeCommand(GCode *code)
 {
     unsigned int sum1 = 0, sum2 = 0; // for fletcher-16 checksum

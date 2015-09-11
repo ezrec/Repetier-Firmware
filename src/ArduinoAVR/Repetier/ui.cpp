@@ -569,7 +569,7 @@ void initializeLCD()
 // ----------- end direct LCD driver
 #endif
 #if UI_DISPLAY_TYPE < DISPLAY_ARDUINO_LIB
-void UIDisplay::printRow(uint8_t r,char *txt,char *txt2,uint8_t changeAtCol)
+void UIDisplay::printRow(uint8_t r,const char *txt,const char *txt2,uint8_t changeAtCol)
 {
     changeAtCol = RMath::min(UI_COLS, changeAtCol);
     uint8_t col = 0;
@@ -823,7 +823,7 @@ UIDisplay::UIDisplay()
 #if UI_ANIMATION
 void slideIn(uint8_t row,FSTRINGPARAM(text))
 {
-    char *empty="";
+    const char *empty="";
     int8_t i = 0;
     uid.col=0;
     uid.addStringP(text);
@@ -2458,7 +2458,7 @@ void UIDisplay::adjustMenuPos()
     }
 
     // with bad luck the only visible option was in the opposite direction
-    while(menuPos[menuLevel] < numEntries - 1) // Go down until we reach visible position
+    while(menuPos[menuLevel] < (uint16_t)(numEntries - 1)) // Go down until we reach visible position
     {
         entry = (UIMenuEntry *)pgm_read_word(&(entries[menuPos[menuLevel]]));
         if(pgm_read_byte((void*)&(entry->entryType)) == 1) // skip headlines
@@ -3666,7 +3666,7 @@ void UIDisplay::slowAction(bool allowMoves)
         int16_t encodeChange = encoderPos;
         encoderPos = 0;
         noInts.unprotect();
-        int newAction;
+        uint16_t newAction;
         if(encodeChange) // encoder changed
         {
             nextPreviousAction(encodeChange, allowMoves);
@@ -3744,9 +3744,6 @@ void UIDisplay::slowAction(bool allowMoves)
     }
     else if(time - lastRefresh >= 800)
     {
-        //UIMenu *men = (UIMenu*)menu[menuLevel];
-        //uint8_t mtype = pgm_read_byte((void*)&(men->menuType));
-        //if(mtype!=1)
         refresh = 1;
     }
     if(refresh) // does lcd need a refresh?

@@ -128,9 +128,14 @@ public:
     void updateDerived();
     void reportStatus();
 private:
-    INLINE int matrixIndex(fast8_t x, fast8_t y) const;
-    INLINE int32_t getMatrix(int index) const;
-    INLINE void setMatrix(int32_t val, int index);
+#if !DISTORTION_PERMANENT
+#define MATRIX_INLINE	inline
+#else
+#define MATRIX_INLINE
+#endif
+    MATRIX_INLINE int matrixIndex(fast8_t x, fast8_t y) const;
+    MATRIX_INLINE int32_t getMatrix(int index) const;
+    MATRIX_INLINE void setMatrix(int32_t val, int index);
     bool isCorner(fast8_t i, fast8_t j) const;
     INLINE int32_t extrapolatePoint(fast8_t x1, fast8_t y1, fast8_t x2, fast8_t y2) const;
     void extrapolateCorner(fast8_t x, fast8_t y, fast8_t dx, fast8_t dy);
@@ -299,7 +304,7 @@ public:
     static uint32_t stepNumber;         ///< Step number in current move.
     static float coordinateOffset[Z_AXIS_ARRAY];
     static int32_t currentPositionSteps[E_AXIS_ARRAY];     ///< Position in steps from origin.
-    static float currentPosition[Z_AXIS_ARRAY];
+    static float currentPosition[E_AXIS_ARRAY];
     static float lastCmdPos[Z_AXIS_ARRAY]; ///< Last coordinates send by gcodes
     static int32_t destinationSteps[E_AXIS_ARRAY];         ///< Target position in steps.
     static float extrudeMultiplyError; ///< Accumulated error during extrusion
