@@ -99,6 +99,7 @@ void Extruder::manageTemperatures()
                 extruder[controller].coolerPWM = 0;
             else
                 extruder[controller].coolerPWM = extruder[controller].coolerSpeed;
+
 #endif // NUM_EXTRUDER
         }
         // do skip temperature control while auto tuning is in progress
@@ -110,6 +111,9 @@ void Extruder::manageTemperatures()
         // Get Temperature
         act->updateCurrentTemperature();
 
+    	/* Nothing to do for disabled extruders */
+    	if (controller < NUM_EXTRUDER && !extruder[controller].enableOn)
+	    continue;
 
         // Check for obvious sensor errors
         if(act->currentTemperatureC < MIN_DEFECT_TEMPERATURE || act->currentTemperatureC > MAX_DEFECT_TEMPERATURE)   // no temp sensor or short in sensor, disable heater
