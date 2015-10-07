@@ -291,9 +291,11 @@ STEPPER_CURRENT_CONTROL
 *
 ****************************************************************************************/
 #if MOTHERBOARD == 33
+#undef MOTHERBOARD
 #define MOTHERBOARD 3
 #define RAMPS_V_1_3
 #elif MOTHERBOARD == 34
+#undef MOTHERBOARD
 #define MOTHERBOARD 3
 #define RAMPS_V_1_3
 #define AZTEEG_X3

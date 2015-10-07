@@ -1221,7 +1221,7 @@ uint8_t PrintLine::calculateDistance(float axisDiff[], uint8_t dir, float *dista
     }
 }
 
-#ifdef SOFTWARE_LEVELING && DRIVE_SYSTEM==3
+#if defined(SOFTWARE_LEVELING) && DRIVE_SYSTEM==3
 void PrintLine::calculatePlane(long factors[], long p1[], long p2[], long p3[])
 {
     factors[0] = p1[1] * (p2[2] - p3[2]) + p2[1] * (p3[2] - p1[2]) + p3[1] * (p1[2] - p2[2]);
