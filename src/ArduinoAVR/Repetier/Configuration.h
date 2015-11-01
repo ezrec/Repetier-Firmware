@@ -203,7 +203,7 @@
 #define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_X_BACK_ON_HOME 0
 #define ENDSTOP_Y_BACK_ON_HOME 0
-#define ENDSTOP_Z_BACK_ON_HOME 2
+#define ENDSTOP_Z_BACK_ON_HOME 10
 #define ALWAYS_CHECK_ENDSTOPS 0
 
 // ################# XYZ movements ###################
@@ -570,7 +570,7 @@ Values must be in range 1..255
     "zHomeDir": 1,
     "xEndstopBack": 0,
     "yEndstopBack": 0,
-    "zEndstopBack": 2,
+    "zEndstopBack": 10,
     "deltaSegmentsPerSecondPrint": 180,
     "deltaSegmentsPerSecondTravel": 70,
     "deltaDiagonalRod": 196,
