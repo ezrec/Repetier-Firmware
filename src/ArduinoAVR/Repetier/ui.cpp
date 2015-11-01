@@ -2012,7 +2012,7 @@ void UIDisplay::adjustMenuPos()
     if(menuLevel == 0) return;
     UIMenu *men = (UIMenu*)menu[menuLevel];
     UIMenuEntry **entries = (UIMenuEntry**)pgm_read_word(&(men->entries));
-    uint8_t mtype = HAL::readFlashByte((const prog_char*)&(men->menuType));
+    uint8_t mtype = HAL::readFlashByte((const char *)&(men->menuType));
     if(mtype != 2) return;
     while(menuPos[menuLevel]>0)
     {
@@ -2079,7 +2079,7 @@ void UIDisplay::nextPreviousAction(int8_t next)
     }
     UIMenu *men = (UIMenu*)menu[menuLevel];
     uint8_t nr = pgm_read_word_near(&(men->numEntries));
-    uint8_t mtype = HAL::readFlashByte((const prog_char*)&(men->menuType));
+    uint8_t mtype = HAL::readFlashByte((const char*)&(men->menuType));
     UIMenuEntry **entries = (UIMenuEntry**)pgm_read_word(&(men->entries));
     UIMenuEntry *ent =(UIMenuEntry *)pgm_read_word(&(entries[menuPos[menuLevel]]));
     UIMenuEntry *testEnt;
