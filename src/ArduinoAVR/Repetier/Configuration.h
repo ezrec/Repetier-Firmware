@@ -46,7 +46,7 @@
 
 #undef FAN_PIN
 #undef FAN_BOARD_PIN
-#define FAN_PIN -1
+#define FAN_PIN ORIG_FAN_PIN
 #define FAN_BOARD_PIN -1
 
 //#define EXTERNALSERIAL  use Arduino serial library instead of build in. Requires more ram, has only 63 byte input buffer.
@@ -728,7 +728,7 @@ Values must be in range 1..255
     "forceChecksum": "0",
     "sdExtendedDir": "1",
     "featureFanControl": "1",
-    "fanPin": -1,
+    "fanPin": "ORIG_FAN_PIN",
     "scalePidToMax": 0,
     "zProbePin": "ORIG_Z_MIN_PIN",
     "zProbeBedDistance": 40,
