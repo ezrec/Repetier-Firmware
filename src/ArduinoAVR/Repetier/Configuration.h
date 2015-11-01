@@ -516,7 +516,7 @@ Values must be in range 1..255
     "xMaxEndstop": 2,
     "yMaxEndstop": 2,
     "zMaxEndstop": 2,
-    "motherboard": 33,
+    "motherboard": 37,
     "driveSystem": 3,
     "xMaxSpeed": 400,
     "xHomingSpeed": 40,
