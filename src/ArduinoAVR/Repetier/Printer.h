@@ -304,7 +304,7 @@ public:
     static uint32_t stepNumber;         ///< Step number in current move.
     static float coordinateOffset[Z_AXIS_ARRAY];
     static int32_t currentPositionSteps[E_AXIS_ARRAY];     ///< Position in steps from origin.
-    static float currentPosition[E_AXIS_ARRAY];
+    static float currentPosition[Z_AXIS_ARRAY];
     static float lastCmdPos[Z_AXIS_ARRAY]; ///< Last coordinates send by gcodes
     static int32_t destinationSteps[E_AXIS_ARRAY];         ///< Target position in steps.
     static float extrudeMultiplyError; ///< Accumulated error during extrusion

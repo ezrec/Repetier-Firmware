@@ -427,7 +427,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define WAITING_IDENTIFIER "wait"
 #define ECHO_ON_EXECUTE 1
 #define EEPROM_MODE 2
-#define PS_ON_PIN -1
+#define PS_ON_PIN ORIG_PS_ON_PIN
 
 /* ======== Servos =======
 Control the servos with
@@ -486,7 +486,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 
 #ifndef SDSUPPORT  // Some boards have sd support on board. These define the values already in pins.h
 #define SDSUPPORT 1
-#define SDCARDDETECT 38
+#define SDCARDDETECT ORIG_SDCARDDETECT
 #define SDCARDDETECTINVERTED 0
 #endif
 #define SD_EXTENDED_DIR 1 /** Show extended directory including file length. Don't use this with Pronterface! */
@@ -920,7 +920,7 @@ Values must be in range 1..255
     "zProbeSwitchingDistance": 2,
     "zProbeRepetitions": 1,
     "sdSupport": "1",
-    "sdCardDetectPin": 38,
+    "sdCardDetectPin": "ORIG_SDCARDDETECT",
     "sdCardDetectInverted": "0",
     "uiStartScreenDelay": 1000,
     "xEndstopBackMove": 2,

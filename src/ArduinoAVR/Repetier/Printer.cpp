@@ -47,7 +47,7 @@ uint8_t Printer::relativeCoordinateMode = false;  ///< Determines absolute (fals
 uint8_t Printer::relativeExtruderCoordinateMode = false;  ///< Determines Absolute or Relative E Codes while in Absolute Coordinates mode. E is always relative in Relative Coordinates mode.
 
 long Printer::currentPositionSteps[E_AXIS_ARRAY];
-float Printer::currentPosition[E_AXIS_ARRAY];
+float Printer::currentPosition[Z_AXIS_ARRAY];
 float Printer::lastCmdPos[Z_AXIS_ARRAY];
 long Printer::destinationSteps[E_AXIS_ARRAY];
 float Printer::coordinateOffset[Z_AXIS_ARRAY] = {0,0,0};
@@ -2262,7 +2262,7 @@ int32_t Distortion::correct(int32_t x, int32_t y, int32_t z) const
     int32_t fy = y - fyFloor * step;
 
     int32_t idx11 = matrixIndex(fxFloor, fyFloor);
-    int32_t m11 = getMatrix(idx11);
+    int32_t m11 = getMatrix(idx11), m12 = getMatrix(idx11 + 1);
     int32_t m21 = getMatrix(idx11 + DISTORTION_CORRECTION_POINTS);
     int32_t m22 = getMatrix(idx11 + DISTORTION_CORRECTION_POINTS + 1);
     int32_t zx1 = m11 + ((m21 - m11) * fx) / step;
@@ -2285,6 +2285,7 @@ int32_t Distortion::correct(int32_t x, int32_t y, int32_t z) const
         Com::printF(PSTR(" x"),x);
         Com::printFLN(PSTR(" y"),y);
         Com::printF(PSTR(" m11:"),m11);
+        Com::printF(PSTR(" m12:"),m12);
         Com::printF(PSTR(" m21:"),m21);
         Com::printF(PSTR(" m22:"),m22);
         Com::printFLN(PSTR(" step:"),step);
