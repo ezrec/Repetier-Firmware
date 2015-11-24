@@ -110,7 +110,7 @@
 #define EXT1_HEATER_PIN HEATER_2_PIN
 #define EXT1_STEP_PIN ORIG_E1_STEP_PIN
 #define EXT1_DIR_PIN ORIG_E1_DIR_PIN
-#define EXT1_INVERSE 1
+#define EXT1_INVERSE 0
 #define EXT1_ENABLE_PIN E1_ENABLE_PIN
 #define EXT1_ENABLE_ON 0
 #define EXT1_MAX_FEEDRATE 45
@@ -288,9 +288,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_X_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
-#define ENDSTOP_X_BACK_ON_HOME 2
-#define ENDSTOP_Y_BACK_ON_HOME 2
-#define ENDSTOP_Z_BACK_ON_HOME 2
+#define ENDSTOP_X_BACK_ON_HOME 0
+#define ENDSTOP_Y_BACK_ON_HOME 0
+#define ENDSTOP_Z_BACK_ON_HOME 5
 #define ALWAYS_CHECK_ENDSTOPS 0
 
 // ################# XYZ movements ###################
@@ -426,7 +426,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ACK_WITH_LINENUMBER 1
 #define WAITING_IDENTIFIER "wait"
 #define ECHO_ON_EXECUTE 1
-#define EEPROM_MODE 2
+#define EEPROM_MODE 1
 #define PS_ON_PIN ORIG_PS_ON_PIN
 
 /* ======== Servos =======
@@ -484,11 +484,11 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define AXISCOMP_TANYZ 0
 #define AXISCOMP_TANXZ 0
 
-#ifndef SDSUPPORT  // Some boards have sd support on board. These define the values already in pins.h
-#define SDSUPPORT 1
+#undef SDSUPPORT
+#define SDSUPPORT 0
 #define SDCARDDETECT ORIG_SDCARDDETECT
 #define SDCARDDETECTINVERTED 0
-#endif
+
 #define SD_EXTENDED_DIR 1 /** Show extended directory including file length. Don't use this with Pronterface! */
 #define SD_RUN_ON_STOP ""
 #define SD_STOP_HEATER_AND_MOTORS_ON_STOP 1
@@ -566,7 +566,7 @@ Values must be in range 1..255
     "zStepsPerMM": 80,
     "xInvert": 0,
     "xInvertEnable": 0,
-    "eepromMode": 2,
+    "eepromMode": 1,
     "yInvert": 0,
     "yInvertEnable": 0,
     "zInvert": 0,
@@ -578,7 +578,7 @@ Values must be in range 1..255
             "pidDriveMin": 40,
             "pidDriveMax": 230,
             "pidMax": 255,
-            "sensorType": 97,
+            "sensorType": 8,
             "sensorPin": "TEMP_0_PIN",
             "heaterPin": "HEATER_0_PIN",
             "maxFeedrate": 45,
@@ -623,12 +623,12 @@ Values must be in range 1..255
             "pidDriveMin": 40,
             "pidDriveMax": 230,
             "pidMax": 255,
-            "sensorType": 97,
+            "sensorType": 8,
             "sensorPin": "TEMP_2_PIN",
             "heaterPin": "HEATER_2_PIN",
             "maxFeedrate": 45,
             "startFeedrate": 20,
-            "invert": "1",
+            "invert": "0",
             "invertEnable": "0",
             "acceleration": 5000,
             "watchPeriod": 1,
@@ -923,9 +923,9 @@ Values must be in range 1..255
     "sdCardDetectPin": "ORIG_SDCARDDETECT",
     "sdCardDetectInverted": "0",
     "uiStartScreenDelay": 1000,
-    "xEndstopBackMove": 2,
-    "yEndstopBackMove": 2,
-    "zEndstopBackMove": 2,
+    "xEndstopBackMove": 0,
+    "yEndstopBackMove": 0,
+    "zEndstopBackMove": 5,
     "xEndstopRetestFactor": 3,
     "yEndstopRetestFactor": 3,
     "zEndstopRetestFactor": 3,

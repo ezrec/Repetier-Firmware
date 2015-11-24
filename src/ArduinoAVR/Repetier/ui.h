@@ -502,7 +502,7 @@ extern const int8_t encoder_table[16] PROGMEM ;
 #undef SDCARDDETECTINVERTED
 #define SDCARDDETECTINVERTED 0
 #undef SDSUPPORT
-#define SDSUPPORT 1
+#define SDSUPPORT 0
 #endif
 
 #if FEATURE_CONTROLLER == CONTROLLER_VIKI2
